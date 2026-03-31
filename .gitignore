@@ -6,3 +6,4 @@ env
 obj
 users
 env
+dist/
