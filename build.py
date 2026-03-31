@@ -42,7 +42,7 @@ def compile_c(compiler, flags, c_code, output_path):
             os.remove(f_name)
 
 def build_all(targets, seed_suffix):
-    base_dir = Path(__file__).parent.absolute() / 'challenges'
+    base_dir = Path(__file__).parent.absolute() / 'challenges_src'
     if not base_dir.exists():
         print(f"  [-] Directory {base_dir} does not exist.")
         return
