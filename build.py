@@ -5,6 +5,7 @@ import shutil
 import argparse
 import subprocess
 import importlib
+import importlib.util
 import tempfile
 from pathlib import Path
 
