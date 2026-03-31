@@ -1,0 +1,35 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <stdint.h>
+#include <signal.h>
+
+char msg[] = "{{ description }}";
+char* try_again = "Try again.";
+uint32_t key;
+
+void print_msg() {
+  printf("%s", msg);
+}
+
+struct overflow_me {
+  char buffer[16];
+  char* arbitrary_pointer;
+  char allocated_memory;
+  char random_char;
+}; 
+
+int main(int argc, char* argv[]) {
+  struct overflow_me locals;
+  memset(&locals, 0, sizeof(locals));
+  locals.arbitrary_pointer = &locals.allocated_memory;
+
+  print_msg();
+
+  printf("Enter the password: ");
+  scanf("%u %20s", &key, locals.buffer);
+
+  {{ expanded_switch_statement }}
+
+  return 0;
+}
