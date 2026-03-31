@@ -3,11 +3,7 @@ name: Build Angr CTF Binaries
 on:
   push:
     tags:
-      - 'v*'  # 当您打出类似于 'v1.0' 的标签时，会自动触发Release发布
-    branches:
-      - master
-      - main
-  pull_request:
+      - 'v*'  # 仅仅在您打出类似于 'v1.0' 的标签时才会触发编译和发布，平时推送代码保持静默
 
 jobs:
   build:
