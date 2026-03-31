@@ -32,13 +32,13 @@ jobs:
               --linux-cc gcc \
               --android-cc aarch64-linux-gnu-gcc
               
-      # 将三个平台的产物分别打包成 ZIP
+      # 将三个平台的产物分别打包成 ZIP (使用 -j 参数去掉压缩包内的文件夹层级)
       - name: Archive Binaries
         run: |
           cd dist
-          zip -r windows-binaries.zip windows/
-          zip -r linux-binaries.zip linux/
-          zip -r android-binaries.zip android/
+          zip -j windows-binaries.zip windows/*
+          zip -j linux-binaries.zip linux/*
+          zip -j android-binaries.zip android/*
           
       # 上传作为 Action Artifacts 备用（即使不是 Tag 触发也能在这个界面下载）
       - name: Upload Artifacts
